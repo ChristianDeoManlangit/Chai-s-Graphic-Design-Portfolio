@@ -1,0 +1,337 @@
+
+/* Theme specific styles */
+:root {
+  --bg-gradient-dark: linear-gradient(to bottom right, #111827, #1f2937, #111827);
+  --bg-gradient-light: linear-gradient(to bottom right, #e2e4e7, #d1d3d7, #e2e4e7);
+  --text-dark: #f3f4f6;
+  --text-light: #1f2937;
+  --glass-bg-dark: rgba(255, 255, 255, 0.1);
+  --glass-bg-light: rgba(255, 255, 255, 0.8);
+  --glass-border-dark: rgba(255, 255, 255, 0.2);
+  --glass-border-light: rgba(0, 0, 0, 0.1);
+  --hover-glow-dark: rgba(255, 255, 255, 0.3);
+  --hover-glow-light: rgba(59, 130, 246, 0.5);
+}
+
+.theme-transition {
+  transition: all 0.5s ease;
+}
+
+body {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background: var(--bg-gradient-dark);
+  color: var(--text-dark);
+}
+
+body.light {
+  background: var(--bg-gradient-light);
+  color: var(--text-light);
+}
+
+.glass {
+  transition: all 0.3s ease;
+}
+
+body.dark .glass {
+  background: var(--glass-bg-dark);
+  border-color: var(--glass-border-dark);
+}
+
+body.light .glass {
+  background: var(--glass-bg-light);
+  border-color: var(--glass-border-light);
+}
+
+body.light .portfolio-button {
+  background-color: #1f2937;
+  color: white;
+}
+
+body.light h3 {
+  color: var(--text-light);
+}
+
+body.light #modalInfo,
+body.light #mobileModalContent {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text-light);
+}
+
+body.light .dot {
+  background: #4b5563;
+}
+
+body.light #modalClose,
+body.light #mobileModalClose {
+  color: #1f2937;
+}
+
+body.light #mobileModalTitle {
+  color: #1f2937;
+}
+
+body.light nav.backdrop-blur-md {
+  background: var(--glass-bg-light);
+  border: 1px solid var(--glass-border-light);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+body.dark nav.backdrop-blur-md {
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+body.dark .glass:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+body.light .image-hover:hover {
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.5);
+}
+
+body.light #modalOverlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+body.light .text-gray-300 {
+  color: #4b5563;
+}
+
+body.light #tabs li:hover {
+  color: #1f2937;
+}
+
+/* Content protection */
+img.protected {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.image-hover {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.image-hover:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+body.dark .image-hover:hover {
+  box-shadow: 0 10px 20px var(--hover-glow-dark);
+}
+
+body.light .image-hover:hover {
+  box-shadow: 0 10px 20px var(--hover-glow-light);
+}
+
+/* Custom scrollbar for dark mode */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5);
+  border-radius: 4px;
+}
+
+/* Modal overlay styles */
+#modalOverlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+}
+
+/* Floating navigation arrows */
+#modalPrev, #modalNext {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 60;
+}
+
+#modalPrev:hover, #modalNext:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+#modalPrev.disabled, #modalNext.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: default;
+}
+
+#modalPrev {
+  left: 1rem;
+}
+
+#modalNext {
+  right: 1rem;
+}
+
+/* Banner styling */
+.channel-banner {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.channel-title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.channel-subtitle {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .channel-banner {
+    height: 120px;
+  }
+  .channel-title {
+    font-size: 1.75rem;
+  }
+  .channel-subtitle {
+    font-size: 1rem;
+  }
+  #modalPrev, #modalNext {
+    width: 2.25rem;
+    height: 2.25rem;
+    display: none !important;
+  }
+  #modalContent {
+    flex-direction: column;
+    max-height: 100vh;
+  }
+  #modalImageContainer {
+    max-height: 50vh;
+    overflow: auto;
+  }
+  #modalInfo {
+    max-height: 50vh;
+    overflow-y: auto;
+    border-top: 1px solid white;
+    border-left: none;
+    padding-top: 1rem;
+    width: 100% !important;
+    margin-left: 0 !important;
+    box-sizing: border-box;
+  }
+  #modalInfo .flex.items-center.space-x-3.mb-4 {
+    justify-content: flex-start !important;
+  }
+  #modalInfo .flex.items-center.space-x-3.mb-4 > div {
+    text-align: left !important;
+    width: 100%;
+  }
+}
+
+/* Left column image container */
+#modalImageContainer {
+  flex: 1;
+  max-height: 80vh;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Make image full bleed in left column */
+#modalImage {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Right column info panel styles */
+#modalInfo {
+  flex-shrink: 0;
+  width: 20rem;
+  padding: 1rem;
+  overflow-y: auto;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: rgba(31, 41, 55, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+}
+
+#modalClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+}
+
+/* Glassmorphism and animations */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: background 0.3s ease;
+}
+
+.glass:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Fade down animation */
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeDown {
+  animation: fadeDown 0.8s ease forwards;
+}
+
+.animate-fadeDown.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-fadeDown.delay-200 {
+  animation-delay: 0.2s;
+}

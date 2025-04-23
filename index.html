@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graphics Design Portfolio | Chai</title>
+  <link rel="icon" type="image/png" href="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/BSECE.png?raw=true">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="dark font-inter min-h-screen overflow-x-hidden" oncontextmenu="return false;" onselectstart="return false" ondragstart="return false">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fadeDown">
+    <!-- Header -->
+    <header class="flex items-center justify-between mb-8 glass px-6 py-4 shadow-lg border border-white/20">
+      <img src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/BSECE.png?raw=true" alt="Logo" class="h-10" />
+      <button
+        id="theme-toggle"
+        aria-label="Toggle Dark Mode"
+        class="text-gray-300 hover:text-white transition-colors duration-300"
+      >
+        <i class="fas fa-moon text-xl drop-shadow-lg"></i>
+      </button>
+    </header>
+
+    <!-- Container for all content to ensure consistent width -->
+    <div class="w-full mx-auto">
+      <!-- YouTube Style Channel Banner -->
+      <div class="channel-banner relative rounded-lg overflow-hidden shadow-lg mt-4 glass">
+        <img src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/485673768_464957933275147_3557984407168253168_n.jpg?raw=true" alt="Channel Banner" class="w-full h-48 md:h-60 object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-sm"></div>
+      </div>
+
+      <!-- Profile Info - YouTube Style -->
+      <section class="flex flex-col md:flex-row items-start py-6 border-b border-gray-700 glass mt-6 px-6 animate-fadeDown delay-100 rounded-lg shadow-lg">
+        <!-- Left side - Channel Icon and Info -->
+        <div class="flex md:flex-row flex-col items-center md:items-start w-full md:w-auto">
+          <div class="relative mb-4 md:mb-0 md:mr-6">
+            <img 
+              src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/profile.jpg?raw=true" 
+              alt="Profile Icon" 
+              class="w-24 h-24 rounded-full object-cover border-2 border-white/40 shadow-lg backdrop-blur-sm"
+            />
+            <div class="absolute bottom-0 right-0 bg-blue-600 w-6 h-6 rounded-full flex items-center justify-center text-white">
+              <i class="fas fa-check text-xs"></i>
+            </div>
+          </div>
+
+          <div class="text-center md:text-left">
+            <h3 class="text-xl font-bold text-white drop-shadow-md">Christian Deo Manlangit</h3>
+            <div class="flex flex-col md:flex-row md:items-center text-sm text-gray-300 mt-1">
+              <span class="md:mr-3">@christiandeomanlangit725</span>
+              <span class="hidden md:inline">•</span>
+              <span class="md:mx-3">30 Graphics</span>
+              <span class="hidden md:inline">•</span>
+              <span class="md:ml-3">6 videos</span>
+            </div>
+            <p class="text-sm text-gray-300 mt-2 max-w-md">
+              Hi, I’m Chai! This website is dedicated to showcasing my graphic design collection, as well as my video publications over the years.
+            </p>
+            <div class="mt-2 text-sm text-blue-500">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side - Subscribe Button -->
+        <div class="mt-4 md:mt-0 md:ml-auto w-full md:w-auto">
+          <a href="https://philosophical-interaction-009424.framer.app/" target="_blank" rel="noopener noreferrer"
+             class="portfolio-button bg-white hover:bg-gray-200 text-gray-900 px-6 py-2 rounded-full font-semibold transition-colors duration-300 w-full md:w-auto shadow-lg inline-block text-center">
+            Portfolio
+          </a>
+        </div>
+      </section>
+
+      <!-- Tabs - Aligned with Profile Info section -->
+      <nav class="border-t border-b border-gray-700 mb-6 backdrop-blur-md bg-white/10 rounded-lg shadow-lg px-6 py-3 animate-fadeDown delay-200 mt-6">
+        <ul id="tabs" class="flex justify-center md:justify-start space-x-12 text-sm font-semibold text-gray-300">
+          <li data-tab="TAB1" class="border-t-2 border-black dark:border-white pt-3 pb-2 cursor-pointer">2025</li>
+          <li data-tab="TAB2" class="pt-3 pb-2 cursor-pointer hover:text-white transition-colors duration-300">2024</li>
+          <li data-tab="TAB3" class="pt-3 pb-2 cursor-pointer hover:text-white transition-colors duration-300">2023</li>
+          <li data-tab="tagged" class="pt-3 pb-2 cursor-pointer hover:text-white transition-colors duration-300">Videos</li>
+        </ul>
+      </nav>
+
+      <!-- Image Grids - Aligned with Profile Info section -->
+      <div id="posts" class="grid grid-cols-3 gap-3 md:gap-6">
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/ART%20DAY.png?raw=true&w=300"
+          alt="World Art Day | Pubmat for Artisan"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="April 15, 2025"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/BACKDROP.png?raw=true"
+          alt="Photo Booth Backdrop | Pubmat for Artisan"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 17, 2025"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/WOMEN'S%20MONTH.png?raw=true"
+          alt="Women's Month | Pubmat for Artisan (unpublished)"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 4, 2025"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/RAMADAN.png?raw=true"
+          alt="Ramadan | Pubmat for Artisan"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="✒️: Marya & 🖼️: Christian Deo Manlangit"
+          data-username="Chai"
+          data-time="March 2, 2025"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/FEATURE%20FRIDAY.png?raw=true"
+          alt="Feature Friday | Pubmat for Artisan"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="✒️: Pres'to, Yan, at MICO & 🖼️: Nelnel at Chai"
+          data-username="Chai"
+          data-time="February 21, 2025"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/BIRTHDAY.png?raw=true"
+          alt="Birthday | Pubmat for Artisan"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="January 10, 2025"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/JUST%20IN.png?raw=true"
+          alt="Just In | Pubmat for Artisan"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="January 8, 2025"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/SCHOOL%20UNIFORM.png?raw=true"
+          alt="Complete Uniform and School Id | Pubmat for Artisan"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🎨: Erica Peque & 🖼️: Chai"
+          data-username="Chai"
+          data-time="January 6, 2025"
+        />
+      </div>
+
+      <div id="igtv" class="hidden grid grid-cols-3 gap-3 md:gap-6">
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/NEVER.png?raw=true"
+          alt="Never - Up Dharma Down"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="April 7, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://framerusercontent.com/images/0s2wAwh6FxfwTmqpvhV6a5DtvQ.png"
+          alt="Sfishie: Front Cover"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 24, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://framerusercontent.com/images/lDHGH8G5v4KvwCDQZPco7bhqyu0.png"
+          alt="Sfishie: Interface 1"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 24, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://framerusercontent.com/images/Oe8wLwctChVR7aZ7aStipkHQBDg.png"
+          alt="Sfishie: Interface 2"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 24, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://framerusercontent.com/images/Y5mWYpbvdA3Azb0iJnjYLZfb4.png"
+          alt="Sfishie: Interface 3"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 24, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/manu.png?raw=true"
+          alt="True Chicken Menu (incomplete)"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="March 13, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/CHICKEN%20SANDWICH%20MENU.png?raw=true"
+          alt="Chicken Sandwich Menu"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="March 12, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Deluxe%20Chicken%20Sandwich.png?raw=true"
+          alt="Deluxe Chicken Sandwich Poster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="March 8, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Grilled%20Chicken%20Sandwich.png?raw=true"
+          alt="Grilled Chicken Sandwich Poster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="March 8, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Original%20Chicken%20Sandwich.png?raw=true"
+          alt="Original Chicken Sandwich Poster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="March 8, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Waffle%20Fries%20Poster.jpg?raw=true"
+          alt="Waffle Fries Poster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="March 4, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/ALL%20DAY.png?raw=true"
+          alt="All Day Breakfast Meals Poster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="March 1, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Bardsfab%20x%20True%20Chicken%20Poster.jpg?raw=true"
+          alt="Collaboration Poster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken & Bardsfab"
+          data-username="Chai"
+          data-time="March 1, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Chicken%20Nugget.png?raw=true"
+          alt="Chicken Nugget Poster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="February 28, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Delux.png?raw=true"
+          alt="Deluxe Chicken Sandwich Poster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="February 28, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Grilled.png?raw=true"
+          alt="Grilled Chicken Sandwich Poster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="February 28, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Original.png?raw=true"
+          alt="Original Chicken Sandwich Poster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="February 28, 2024"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Facebook%20Banner.jpg?raw=true"
+          alt="True Chicken Facebook Banner"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai | True Chicken"
+          data-username="Chai"
+          data-time="February 27, 2024"
+        />
+      </div>
+
+      <div id="saved" class="hidden grid grid-cols-3 gap-3 md:gap-6">
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Manila%20-%20One%20Click%20Straight.png?raw=true"
+          alt="Manila - One Click Straight"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="May 7, 2023"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/INSTEAD.png?raw=true"
+          alt="Instead - B.P Valenzuela"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="April 28, 2023"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Ilaw%20Sa%20Daan%20-%20IV%20Of%20Spades%20(1).png?raw=true"
+          alt="Ilaw sa Daan - IV of Spades"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="April 9, 2023"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Huminga%20-%20Zild.png?raw=true"
+          alt="Huminga - Zild"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="April 8, 2023"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/MGA%20KATULAD%20MO.png?raw=true"
+          alt="Mga Katulad Mo - Unique Salonga"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="April 1, 2023"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/I'm%20A%20Butterfly%20-%20IV%20of%20Spades.png?raw=true"
+          alt="I’m a butterfly - IV of Spades"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 26, 2023"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Nararararamdaman%20-%20Blaster.png?raw=true"
+          alt="Nararararamdaman - Blaster"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 19, 2023"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Bahala%20Ka%20Na%20-%20Zild.png?raw=true"
+          alt="Bahala ka na - Zild"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 19, 2023"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Habulan%20-%20Zild.png?raw=true"
+          alt="Habulan - Zild"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 19, 2023"
+        />
+        <img
+          loading="lazy"
+          src="https://github.com/ChristianDeoManlangit/ImageSources/blob/main/Compressed/Sino%20-%20Unique%20Salonga.png?raw=true"
+          alt="Sino - Unique Salonga"
+          class="w-full aspect-square object-cover cursor-pointer rounded-lg shadow-lg transition-transform duration-300 image-hover backdrop-blur-sm"
+          data-description="🖼️: Chai"
+          data-username="Chai"
+          data-time="March 15, 2023"
+        />
+      </div>
+
+      <div id="tagged" class="hidden grid grid-cols-3 gap-3 md:gap-6">
+        <p class="col-span-3 text-center text-gray-500 dark:text-gray-400 py-10">No videos Available</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Modal with Glassmorphic Effect -->
+  <div id="modalOverlay" class="fixed inset-0 hidden flex items-center justify-center z-50 overflow-hidden">
+    <!-- Desktop Modal -->
+    <div id="modalContent" class="flex flex-row max-w-5xl w-full max-h-[80vh] relative glass rounded-lg overflow-hidden shadow-lg backdrop-filter backdrop-blur-md bg-gray-900 bg-opacity-40 bg-opacity-40 border border-white/20">
+      <!-- Left: Image Container -->
+      <div id="modalImageContainer" class="flex-1 flex items-center justify-center">
+        <img id="modalImage" src="" alt="Expanded Image" class="max-w-full max-h-full object-contain">
+      </div>
+
+      <!-- Right: Info Panel -->
+      <div id="modalInfo" class="w-80 p-4 text-white flex flex-col">
+        <!-- User Info - Modified to move close button to the right -->
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-red-400">
+            <img id="modalUserAvatar" src="" alt="User" class="w-full h-full object-cover rounded-full">
+          </div>
+          <div>
+            <p id="modalUsername" class="font-medium"></p>
+            <p id="modalTime" class="text-sm text-gray-300"></p>
+          </div>
+          <!-- Close Button (Desktop) - Absolute positioning to ensure it stays at the far right -->
+          <button id="modalClose" class="ml-auto text-white text-lg hover:text-gray-300 transition-colors">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <hr class="border-white/20 mb-4">
+
+        <!-- Image Info -->
+        <div class="space-y-2">
+          <div class="flex items-center space-x-2">
+            <div class="w-2 h-2 rounded-full bg-white dot"></div>
+            <h3 id="modalTitle" class="font-medium"></h3>
+          </div>
+          <p id="modalDescription" class="text-sm text-gray-300"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Modal -->
+    <div id="mobileModalContent" class="hidden flex-col w-[90%] max-h-[90vh] relative glass rounded-lg overflow-hidden shadow-lg backdrop-filter backdrop-blur-md bg-gray-900 bg-opacity-40 border border-white/20">
+      <!-- Top: User info bar -->
+      <div class="flex items-center justify-between p-3 border-b border-white/20">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-full bg-red-400">
+            <img id="mobileUserAvatar" src="" alt="User" class="w-full h-full object-cover rounded-full">
+          </div>
+          <div>
+            <p id="mobileUsername" class="font-medium text-sm"></p>
+            <p id="mobileTime" class="text-xs text-gray-300"></p>
+          </div>
+        </div>
+        <!-- Close Button (Mobile) -->
+        <button id="mobileModalClose" class="text-white text-lg hover:text-gray-300 transition-colors">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Middle: Image Container -->
+      <div id="mobileImageContainer" class="w-full">
+        <img id="mobileModalImage" src="" alt="Expanded Image" class="w-full object-contain">
+      </div>
+
+      <!-- Bottom: Image Info and Navigation -->
+      <div class="p-4 border-t border-white/20 text-white">
+        <div class="flex items-center space-x-2 mb-1">
+          <div class="w-2 h-2 rounded-full bg-white dot"></div>
+          <h3 id="mobileModalTitle" class="font-medium"></h3>
+        </div>
+        <p id="mobileModalDescription" class="text-sm text-gray-300 mb-4"></p>
+
+        <!-- Navigation Buttons (Inside the card for mobile) -->
+        <div class="flex justify-between mt-4">
+          <button id="mobilePrev" class="w-12 h-12 rounded-full bg-gray-500 bg-opacity-50 flex items-center justify-center text-white hover:bg-opacity-70 transition-colors">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button id="mobileNext" class="w-12 h-12 rounded-full bg-gray-500 bg-opacity-50 flex items-center justify-center text-white hover:bg-opacity-70 transition-colors">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows (Desktop only) -->
+    <button id="modalPrev" class="hidden md:flex absolute left-4 w-12 h-12 rounded-full bg-gray-500 bg-opacity-50 items-center justify-center text-white z-60 hover:bg-opacity-70 transition-colors">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button id="modalNext" class="hidden md:flex absolute right-4 w-12 h-12 rounded-full bg-gray-500 bg-opacity-50 items-center justify-center text-white z-60 hover:bg-opacity-70 transition-colors">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
