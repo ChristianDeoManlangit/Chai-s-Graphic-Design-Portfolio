@@ -56,5 +56,5 @@ This website is a visual archive of my creative journey in graphic design and vi
 ## Link
 ## 🔗 Live Link
 
-- [Chai's Graphic Design Portfolio](https://www.github.com/octokatherine)
+- [Chai's Graphic Design Portfolio](https://christiandeomanlangit.github.io/Chai-s-Graphic-Design-Portfolio/)
 
