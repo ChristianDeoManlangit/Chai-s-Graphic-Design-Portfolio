@@ -53,7 +53,7 @@ This website is a visual archive of my creative journey in graphic design and vi
 ![UI in Mobile](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Mobile%20Interface.png?raw=true)
 
 *User Interface in Mobile Device*
-## Link
+
 ## 🔗 Live Link
 
 - [Chai's Graphic Design Portfolio](https://christiandeomanlangit.github.io/Chai-s-Graphic-Design-Portfolio/)
