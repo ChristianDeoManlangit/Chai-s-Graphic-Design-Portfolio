@@ -34,25 +34,17 @@ This website is a visual archive of my creative journey in graphic design and vi
 
 ## 📷 Screenshots
 
-![Home Page Dark](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Main%20(dark).png?raw=true)
+| Main Page Dark Theme | Main Page light Theme |
+|-----------|------------------------|
+| ![Home Page Dark](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Main%20(dark).png?raw=true) | ![Home Page Light](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Main%20(Light).png?raw=true) |
 
-*Main Page Dark Theme*
+| Expanded Image Dark Theme | Expanded Image Light Theme |
+|--------|-----------------|
+| ![Expanded Image Dark Theme](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Expanded%20(Dark).png?raw=true) | ![Expanded Image Light Theme](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Expanded%20(Light).png?raw=true) |
 
-![Home Page Light](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Main%20(Light).png?raw=true)
-
-*Main Page light Theme*
-
-![Expanded Image Dark Theme](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Expanded%20(Dark).png?raw=true)
-
-*Expanded Image Dark Theme*
-
-![Expanded Image Light Theme](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Expanded%20(Light).png?raw=true)
-
-*Expanded Image Light Theme*
-
-![UI in Mobile](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Mobile%20Interface.png?raw=true)
-
-*User Interface in Mobile Device*
+| Main Page Dark Theme |
+|-----------|
+| ![UI in Mobile](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Mobile%20Interface.png?raw=true) |
 
 ## 🔗 Live Link
 
