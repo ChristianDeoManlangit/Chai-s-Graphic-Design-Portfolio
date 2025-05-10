@@ -1,36 +1,29 @@
-
 # 🖼️ Chai's Graphic Design Portfolio
 
-Welcome to my personal graphic design and video portfolio website! This space is dedicated to showcasing a curated collection of my work across the years, featuring both still and motion graphics.
+> A curated showcase of my graphic design and video works — featuring a familiar UI inspired by Instagram and YouTube.
 
+![Tech](https://img.shields.io/badge/Frontend-HTML%20%7C%20TailwindCSS%20%7C%20VanillaJS%20%7C%20GSAP-blue)
+![Hosting](https://img.shields.io/badge/Deployed%20on-Vercel-green)
+
+---
 
 ## 🌐 Overview
 
-This website is a visual archive of my creative journey in graphic design and video publishing. The layout draws heavy inspiration from Instagram's user interface and YouTube’s profile pages, bringing a familiar and intuitive experience to viewers.
+This website serves as a visual archive of my creative journey in graphic design and video publishing. It emulates the layouts of Instagram and YouTube to provide users with a clean, modern, and intuitive experience for viewing both still and motion graphics.
 
-## 💻 Tech Stack:
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
-
-
+---
 
 ## ✨ Features
 
-- ✅ Responsive design for desktop, tablet, and mobile views
+- ✅ Responsive design for desktop, tablet, and mobile views  
+- 🌗 Toggle between Light Mode and Dark Mode  
+- 🖼️ Expanded image view with image carousel  
+- 💎 Default glassmorphic theme aesthetic  
+- 📅 Organized tabs to filter graphics by year  
+- 🎞️ Smooth and modern UI animations with GSAP.js  
+- 💤 Lazy loading for optimized image performance  
 
-- 🌗 Toggle between Light Mode and Dark Mode
-
-- 🖼️ Expanded image view with image carousel
-
-- 💎 Default glassmorphic theme aesthetic
-
-- 📅 Organized tabs to filter graphics by year
-
-- 🎞️ Smooth and modern UI animations
-
-- 💤 Lazy loading for optimized image performance
-
-
+---
 
 ## 📷 Screenshots
 
@@ -46,7 +39,23 @@ This website is a visual archive of my creative journey in graphic design and vi
 |-----------|
 | ![UI in Mobile](https://github.com/ChristianDeoManlangit/ImageSources/blob/main/%F0%9F%93%B7%20Media%20Assets/Mobile%20Interface.png?raw=true) |
 
+---
+
+## 📝 Notes
+
+- Major animation upgrades with the integration of **GSAP.js**  
+- Overhauled all animations for smoother transitions  
+- Improved responsiveness and fixed image loading issues  
+- Integrated optimization techniques for faster rendering  
+
+---
+
 ## 🔗 Live Link
 
-- [Chai's Graphic Design Portfolio](https://christiandeomanlangit.github.io/Chai-s-Graphic-Design-Portfolio/)
+[🌐 Vercel Deployment](https://chai-s-graphic-design-portfolio.vercel.app/)
 
+---
+
+## 👤 Author
+
+Made with ❤️ by **[Chai](https://github.com/ChristianDeoManlangit)**  
