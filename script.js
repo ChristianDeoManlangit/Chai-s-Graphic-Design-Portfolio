@@ -119,10 +119,44 @@ function attachImageListeners() {
     img.addEventListener('click', () => {
       const index = galleryImages.indexOf(img);
       if (index !== -1) {
-        openModal(img, index);
+        if (img.dataset.video) {
+          openVideoModal(img, index);
+        } else {
+          openModal(img, index);
+        }
       }
     });
   });
+}
+
+function openVideoModal(img, index) {
+  currentImageIndex = index;
+  // Desktop
+  modalImage.style.display = 'none';
+  document.getElementById('modalImageContainer').innerHTML = `<div style='width:100%;max-width:800px;display:flex;align-items:center;justify-content:center;'><iframe src='${img.dataset.video}' class='rounded-lg shadow-lg' style='width:100%;height:auto;aspect-ratio:16/9;max-width:800px;' frameborder='0' allowfullscreen></iframe></div>`;
+  // Mobile
+  mobileModalImage.style.display = 'none';
+  document.getElementById('mobileImageContainer').innerHTML = `<iframe src='${img.dataset.video}' class='rounded-lg shadow-lg' style='width:100%;height:auto;aspect-ratio:16/9;max-width:100vw;' frameborder='0' allowfullscreen></iframe>`;
+
+  // Set info
+  modalUsername.textContent = img.dataset.username || 'Chai';
+  mobileUsername.textContent = img.dataset.username || 'Chai';
+  modalTime.textContent = img.dataset.time || 'August 2025';
+  mobileTime.textContent = img.dataset.time || 'August 2025';
+  modalTitle.textContent = img.alt || 'Video';
+  mobileModalTitle.textContent = img.alt || 'Video';
+  modalDescription.textContent = img.dataset.description || '';
+  mobileModalDescription.textContent = img.dataset.description || '';
+
+  const avatarUrl = 'https://github.com/ChristianDeoManlangit/ImageSources/blob/main/profile.jpg?raw=true';
+  modalUserAvatar.src = avatarUrl;
+  mobileUserAvatar.src = avatarUrl;
+
+  updateNavButtons();
+  checkScreenSize();
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  document.addEventListener('keydown', handleKeyDown);
 }
 
 // Initialize gallery images and attach listeners
@@ -190,6 +224,9 @@ function checkScreenSize() {
 }
 
 function closeModal() {
+  // Stop any playing video embeds by removing the iframe
+  document.getElementById('modalImageContainer').innerHTML = '<img id="modalImage" src="" alt="Expanded Image" class="max-w-full max-h-full object-contain">';
+  document.getElementById('mobileImageContainer').innerHTML = '<img id="mobileModalImage" src="" alt="Expanded Image" class="w-full object-contain">';
   modal.classList.add('hidden');
   document.body.style.overflow = '';
   document.removeEventListener('keydown', handleKeyDown);
@@ -199,14 +236,18 @@ function navigatePrev() {
   if (currentImageIndex > 0) {
     currentImageIndex--;
     const prevImg = galleryImages[currentImageIndex];
-    modalImage.src = prevImg.src;
-    mobileModalImage.src = prevImg.src;
-    modalTitle.textContent = prevImg.alt || 'Gallery Image';
-    mobileModalTitle.textContent = prevImg.alt || 'Gallery Image';
-    modalDescription.textContent = prevImg.dataset.description || '';
-    mobileModalDescription.textContent = prevImg.dataset.description || '';
-    modalTime.textContent = prevImg.dataset.time || '';
-    mobileTime.textContent = prevImg.dataset.time || '';
+    if (prevImg.dataset.video) {
+      openVideoModal(prevImg, currentImageIndex);
+    } else {
+      modalImage.src = prevImg.src;
+      mobileModalImage.src = prevImg.src;
+      modalTitle.textContent = prevImg.alt || 'Gallery Image';
+      mobileModalTitle.textContent = prevImg.alt || 'Gallery Image';
+      modalDescription.textContent = prevImg.dataset.description || '';
+      mobileModalDescription.textContent = prevImg.dataset.description || '';
+      modalTime.textContent = prevImg.dataset.time || '';
+      mobileTime.textContent = prevImg.dataset.time || '';
+    }
     updateNavButtons();
   }
 }
@@ -215,14 +256,18 @@ function navigateNext() {
   if (currentImageIndex < galleryImages.length - 1) {
     currentImageIndex++;
     const nextImg = galleryImages[currentImageIndex];
-    modalImage.src = nextImg.src;
-    mobileModalImage.src = nextImg.src;
-    modalTitle.textContent = nextImg.alt || 'Gallery Image';
-    mobileModalTitle.textContent = nextImg.alt || 'Gallery Image';
-    modalDescription.textContent = nextImg.dataset.description || '';
-    mobileModalDescription.textContent = nextImg.dataset.description || '';
-    modalTime.textContent = nextImg.dataset.time || '';
-    mobileTime.textContent = nextImg.dataset.time || '';
+    if (nextImg.dataset.video) {
+      openVideoModal(nextImg, currentImageIndex);
+    } else {
+      modalImage.src = nextImg.src;
+      mobileModalImage.src = nextImg.src;
+      modalTitle.textContent = nextImg.alt || 'Gallery Image';
+      mobileModalTitle.textContent = nextImg.alt || 'Gallery Image';
+      modalDescription.textContent = nextImg.dataset.description || '';
+      mobileModalDescription.textContent = nextImg.dataset.description || '';
+      modalTime.textContent = nextImg.dataset.time || '';
+      mobileTime.textContent = nextImg.dataset.time || '';
+    }
     updateNavButtons();
   }
 }
