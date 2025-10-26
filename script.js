@@ -82,26 +82,22 @@ tabs.forEach(tab => {
 });
 
 const modal = document.getElementById('modalOverlay');
-const desktopModal = document.getElementById('modalContent');
 const mobileModal = document.getElementById('mobileModalContent');
-const modalImage = document.getElementById('modalImage');
 const mobileModalImage = document.getElementById('mobileModalImage');
-const modalUsername = document.getElementById('modalUsername');
 const mobileUsername = document.getElementById('mobileUsername');
-const modalTime = document.getElementById('modalTime');
 const mobileTime = document.getElementById('mobileTime');
-const modalTitle = document.getElementById('modalTitle');
 const mobileModalTitle = document.getElementById('mobileModalTitle');
-const modalDescription = document.getElementById('modalDescription');
 const mobileModalDescription = document.getElementById('mobileModalDescription');
-const modalUserAvatar = document.getElementById('modalUserAvatar');
 const mobileUserAvatar = document.getElementById('mobileUserAvatar');
-const modalClose = document.getElementById('modalClose');
 const mobileModalClose = document.getElementById('mobileModalClose');
-const modalPrev = document.getElementById('modalPrev');
-const modalNext = document.getElementById('modalNext');
 const mobilePrev = document.getElementById('mobilePrev');
 const mobileNext = document.getElementById('mobileNext');
+
+// Ensure modal is always hidden on load
+if (modal && !modal.classList.contains('hidden')) {
+  modal.classList.add('hidden');
+}
+document.body.style.overflow = '';
 
 let currentTab = 'TAB1';
 let galleryImages = [];
@@ -129,33 +125,41 @@ function attachImageListeners() {
   });
 }
 
+function showModal() {
+  modal.classList.remove('hidden');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function hideModal() {
+  modal.classList.add('hidden');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Format modal description to show only one proponent per line
+function formatDescription(desc) {
+  if (!desc) return '';
+  // Only split on explicit \n, not on & | , or other characters
+  return desc.replace(/\\n/g, '\n').trim();
+}
+
 function openVideoModal(img, index) {
   currentImageIndex = index;
-  // Desktop
-  modalImage.style.display = 'none';
-  document.getElementById('modalImageContainer').innerHTML = `<div style='width:100%;max-width:800px;display:flex;align-items:center;justify-content:center;'><iframe src='${img.dataset.video}' class='rounded-lg shadow-lg' style='width:100%;height:auto;aspect-ratio:16/9;max-width:800px;' frameborder='0' allowfullscreen></iframe></div>`;
-  // Mobile
+  // Show video in mobile modal
   mobileModalImage.style.display = 'none';
   document.getElementById('mobileImageContainer').innerHTML = `<iframe src='${img.dataset.video}' class='rounded-lg shadow-lg' style='width:100%;height:auto;aspect-ratio:16/9;max-width:100vw;' frameborder='0' allowfullscreen></iframe>`;
 
   // Set info
-  modalUsername.textContent = img.dataset.username || 'Chai';
   mobileUsername.textContent = img.dataset.username || 'Chai';
-  modalTime.textContent = img.dataset.time || 'August 2025';
   mobileTime.textContent = img.dataset.time || 'August 2025';
-  modalTitle.textContent = img.alt || 'Video';
   mobileModalTitle.textContent = img.alt || 'Video';
-  modalDescription.textContent = img.dataset.description || '';
-  mobileModalDescription.textContent = img.dataset.description || '';
-
+  mobileModalDescription.textContent = formatDescription(img.dataset.description || '');
   const avatarUrl = 'https://github.com/ChristianDeoManlangit/ImageSources/blob/main/profile.jpg?raw=true';
-  modalUserAvatar.src = avatarUrl;
   mobileUserAvatar.src = avatarUrl;
 
   updateNavButtons();
-  checkScreenSize();
-  modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+  showModal();
   document.addEventListener('keydown', handleKeyDown);
 }
 
@@ -165,70 +169,42 @@ attachImageListeners();
 
 async function openModal(img, index) {
   currentImageIndex = index;
-  modalImage.style.opacity = '0.5';
   mobileModalImage.style.opacity = '0.5';
-  
   // Show thumbnail immediately
-  modalImage.src = img.src;
   mobileModalImage.src = img.src;
-  
+  mobileModalImage.style.display = '';
+  document.getElementById('mobileImageContainer').innerHTML = '';
+  document.getElementById('mobileImageContainer').appendChild(mobileModalImage);
   try {
     // Load full resolution image in background
     const fullResUrl = await loadFullResImage(img.src);
-    modalImage.src = fullResUrl;
     mobileModalImage.src = fullResUrl;
-    modalImage.style.opacity = '1';
     mobileModalImage.style.opacity = '1';
   } catch (error) {
     console.error('Error loading full resolution image:', error);
-    modalImage.src = img.src;
     mobileModalImage.src = img.src;
-    modalImage.style.opacity = '1';
     mobileModalImage.style.opacity = '1';
   }
-
-  modalUsername.textContent = img.dataset.username || 'username';
   mobileUsername.textContent = img.dataset.username || 'username';
-  modalTime.textContent = img.dataset.time || '1 day ago';
   mobileTime.textContent = img.dataset.time || '1 day ago';
-  modalTitle.textContent = img.alt || 'Gallery Image';
   mobileModalTitle.textContent = img.alt || 'Gallery Image';
-  modalDescription.textContent = img.dataset.description || '';
-  mobileModalDescription.textContent = img.dataset.description || '';
-
+  mobileModalDescription.textContent = formatDescription(img.dataset.description || '');
   const avatarUrl = 'https://github.com/ChristianDeoManlangit/ImageSources/blob/main/profile.jpg?raw=true';
-  modalUserAvatar.src = avatarUrl;
   mobileUserAvatar.src = avatarUrl;
-
   updateNavButtons();
-  checkScreenSize();
-  modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+  showModal();
   document.addEventListener('keydown', handleKeyDown);
 }
 
-function checkScreenSize() {
-  if (window.innerWidth <= 768) {
-    desktopModal.classList.add('hidden');
-    mobileModal.classList.remove('hidden');
-    mobileModal.classList.add('flex');
-    modalPrev.classList.add('hidden');
-    modalNext.classList.add('hidden');
-  } else {
-    desktopModal.classList.remove('hidden');
-    mobileModal.classList.add('hidden');
-    mobileModal.classList.remove('flex');
-    modalPrev.classList.remove('hidden');
-    modalNext.classList.remove('hidden');
-  }
-}
-
 function closeModal() {
-  // Stop any playing video embeds by removing the iframe
-  document.getElementById('modalImageContainer').innerHTML = '<img id="modalImage" src="" alt="Expanded Image" class="max-w-full max-h-full object-contain">';
   document.getElementById('mobileImageContainer').innerHTML = '<img id="mobileModalImage" src="" alt="Expanded Image" class="w-full object-contain">';
-  modal.classList.add('hidden');
-  document.body.style.overflow = '';
+  // Re-attach close event listener in case the button was replaced
+  const closeBtn = document.getElementById('mobileModalClose');
+  if (closeBtn) {
+    closeBtn.onclick = null;
+    closeBtn.addEventListener('click', closeModal);
+  }
+  hideModal();
   document.removeEventListener('keydown', handleKeyDown);
 }
 
@@ -239,14 +215,7 @@ function navigatePrev() {
     if (prevImg.dataset.video) {
       openVideoModal(prevImg, currentImageIndex);
     } else {
-      modalImage.src = prevImg.src;
-      mobileModalImage.src = prevImg.src;
-      modalTitle.textContent = prevImg.alt || 'Gallery Image';
-      mobileModalTitle.textContent = prevImg.alt || 'Gallery Image';
-      modalDescription.textContent = prevImg.dataset.description || '';
-      mobileModalDescription.textContent = prevImg.dataset.description || '';
-      modalTime.textContent = prevImg.dataset.time || '';
-      mobileTime.textContent = prevImg.dataset.time || '';
+      openModal(prevImg, currentImageIndex);
     }
     updateNavButtons();
   }
@@ -259,14 +228,7 @@ function navigateNext() {
     if (nextImg.dataset.video) {
       openVideoModal(nextImg, currentImageIndex);
     } else {
-      modalImage.src = nextImg.src;
-      mobileModalImage.src = nextImg.src;
-      modalTitle.textContent = nextImg.alt || 'Gallery Image';
-      mobileModalTitle.textContent = nextImg.alt || 'Gallery Image';
-      modalDescription.textContent = nextImg.dataset.description || '';
-      mobileModalDescription.textContent = nextImg.dataset.description || '';
-      modalTime.textContent = nextImg.dataset.time || '';
-      mobileTime.textContent = nextImg.dataset.time || '';
+      openModal(nextImg, currentImageIndex);
     }
     updateNavButtons();
   }
@@ -274,25 +236,16 @@ function navigateNext() {
 
 function updateNavButtons() {
   if (currentImageIndex === 0) {
-    modalPrev.classList.add('opacity-50', 'cursor-not-allowed');
-    modalPrev.disabled = true;
     mobilePrev.classList.add('opacity-50', 'cursor-not-allowed');
     mobilePrev.disabled = true;
   } else {
-    modalPrev.classList.remove('opacity-50', 'cursor-not-allowed');
-    modalPrev.disabled = false;
     mobilePrev.classList.remove('opacity-50', 'cursor-not-allowed');
     mobilePrev.disabled = false;
   }
-
   if (currentImageIndex === galleryImages.length - 1) {
-    modalNext.classList.add('opacity-50', 'cursor-not-allowed');
-    modalNext.disabled = true;
     mobileNext.classList.add('opacity-50', 'cursor-not-allowed');
     mobileNext.disabled = true;
   } else {
-    modalNext.classList.remove('opacity-50', 'cursor-not-allowed');
-    modalNext.disabled = false;
     mobileNext.classList.remove('opacity-50', 'cursor-not-allowed');
     mobileNext.disabled = false;
   }
@@ -304,14 +257,7 @@ function handleKeyDown(e) {
   if (e.key === 'ArrowRight') navigateNext();
 }
 
-modalClose.addEventListener('click', closeModal);
 mobileModalClose.addEventListener('click', closeModal);
-modalPrev.addEventListener('click', () => {
-  if (!modalPrev.disabled) navigatePrev();
-});
-modalNext.addEventListener('click', () => {
-  if (!modalNext.disabled) navigateNext();
-});
 mobilePrev.addEventListener('click', () => {
   if (!mobilePrev.disabled) navigatePrev();
 });
@@ -321,8 +267,6 @@ mobileNext.addEventListener('click', () => {
 modal.addEventListener('click', (e) => {
   if (e.target === modal) closeModal();
 });
-
-window.addEventListener('resize', checkScreenSize);
 
 function getFullResUrl(url) {
   // Remove any size parameters and get full resolution URL
@@ -356,6 +300,13 @@ function preloadImage(url) {
 
 // === GSAP Animations ===
 window.addEventListener('DOMContentLoaded', () => {
+  // Ensure modal is hidden on DOMContentLoaded (in case script runs before DOM is ready)
+  const modal = document.getElementById('modalOverlay');
+  if (modal && !modal.classList.contains('hidden')) {
+    modal.classList.add('hidden');
+  }
+  document.body.style.overflow = '';
+
   // Startup animation
   const mainContainer = document.querySelector('.max-w-6xl');
   mainContainer.setAttribute('id', 'startup-anim');
@@ -418,41 +369,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Modal scale up and blur out
-  function animateModalOpen(modalEl) {
-    modalEl.classList.add('modal-scale');
-    setTimeout(() => modalEl.classList.add('active'), 10);
-    setTimeout(() => modalEl.classList.remove('modal-scale', 'active'), 600);
+  // Ensure close button is always attached after DOMContentLoaded
+  const closeBtn = document.getElementById('mobileModalClose');
+  if (closeBtn) {
+    closeBtn.onclick = null;
+    closeBtn.addEventListener('click', closeModal);
   }
-  function animateModalClose(modalEl, cb) {
-    modalEl.classList.add('modal-blur-out');
-    setTimeout(() => {
-      modalEl.classList.remove('modal-blur-out');
-      if (cb) cb();
-    }, 500);
-  }
-  // Patch openModal and closeModal
-  const origOpenModal = window.openModal;
-  window.openModal = async function(img, index) {
-    await origOpenModal(img, index);
-    if (window.innerWidth <= 768) {
-      animateModalOpen(mobileModal);
-    } else {
-      animateModalOpen(desktopModal);
-    }
-  };
-  function patchedCloseModal() {
-    const modalEl = window.innerWidth <= 768 ? mobileModal : desktopModal;
-    animateModalClose(modalEl, () => {
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
-      document.removeEventListener('keydown', handleKeyDown);
-    });
-  }
-  modalClose.removeEventListener('click', closeModal);
-  mobileModalClose.removeEventListener('click', closeModal);
-  modalClose.addEventListener('click', patchedCloseModal);
-  mobileModalClose.addEventListener('click', patchedCloseModal);
 
   // === Lazy load images with blur-in ===
   function lazyLoadGridImages(gridId) {
