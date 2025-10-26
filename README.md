@@ -43,6 +43,7 @@ This website serves as a visual archive of my creative journey in graphic design
 
 ## 📝 Notes
 
+- Overhauled the Expanded Image Overlay**  
 - Major animation upgrades with the integration of **GSAP.js**  
 - Overhauled all animations for smoother transitions  
 - Improved responsiveness and fixed image loading issues  
